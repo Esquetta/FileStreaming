@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33927.249
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStreaming", "FileStreaming.csproj", "{C8198569-0FEC-48F8-9A72-2DB0528F772E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStreamingClient", "..\FileStreamingClient\FileStreamingClient.csproj", "{9134E88D-5800-4B64-AD24-EBF4ECAF7593}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8198569-0FEC-48F8-9A72-2DB0528F772E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8198569-0FEC-48F8-9A72-2DB0528F772E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8198569-0FEC-48F8-9A72-2DB0528F772E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8198569-0FEC-48F8-9A72-2DB0528F772E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9134E88D-5800-4B64-AD24-EBF4ECAF7593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9134E88D-5800-4B64-AD24-EBF4ECAF7593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9134E88D-5800-4B64-AD24-EBF4ECAF7593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9134E88D-5800-4B64-AD24-EBF4ECAF7593}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {59FCB595-364D-43FF-A8A3-78BC164265DF}
+	EndGlobalSection
+EndGlobal
