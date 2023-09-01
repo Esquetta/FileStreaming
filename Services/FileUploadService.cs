@@ -1,6 +1,7 @@
 ﻿using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
+using Microsoft.AspNetCore.Hosting;
 using static FileStreaming.FileService;
 
 namespace FileStreaming.Services
@@ -19,7 +20,7 @@ namespace FileStreaming.Services
         {
 
             //Stream'in yapılacağı dizin belirleniyor.
-            string path = webHostEnvironment.WebRootPath;
+            string path = Path.Combine(webHostEnvironment.ContentRootPath, "files");
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
             //Dosyanın stream edileceği hedef FileStream.
@@ -48,7 +49,6 @@ namespace FileStreaming.Services
                     //Akışta gelen chunk'ları hedef FileStream nesnesine yazdırıyoruz. Burada, ikinci parametrede ki '0' değeri ile buffer'dan kaçıncı byte'dan itibaren okunacağı ve yazdırılacağı bildirilmektedir.
                     await fileStream.WriteAsync(buffer, 0, requestStream.Current.ReadedByte);
 
-
                     //Akışın yüzdelik olarak ne kadarının aktarıldığı hesaplanıyor.
                     //Formülasyon olarak;
                     //Okunan parça sayısı(ReadedByte), chunkSize değişkeninde toplanıyor ve 100 ile çarpılıp sonuç toplam boyuta bölünüyor. Nihai sonuç ise yakın olan tam sayıya yuvarlanıyor ve yüzdelik olarak ne kadarlık aktarım gerçekleştirildiği hesaplanmış oluyor.
@@ -57,7 +57,7 @@ namespace FileStreaming.Services
                 }
                 Console.WriteLine("Yüklendi...");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //Client'ta stream 'CompleteAsync' edildiği vakit burada olası hata meydana gelebilmektedir. Dolayısıyla tüm bu süreci try catch ile kontrol ediyoruz.
             }
