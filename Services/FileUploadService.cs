@@ -1,7 +1,6 @@
 ﻿using Google.Protobuf;
 using Google.Protobuf.WellKnownTypes;
 using Grpc.Core;
-using Microsoft.AspNetCore.Hosting;
 using static FileStreaming.FileService;
 
 namespace FileStreaming.Services
@@ -29,6 +28,7 @@ namespace FileStreaming.Services
             {
                 int count = 0;
                 //Yüzdelik hesaplaması için 'chunkSize' değişkeni tanımlanıyor.
+
                 decimal chunkSize = 0;
 
                 while (await requestStream.MoveNext())
@@ -42,7 +42,6 @@ namespace FileStreaming.Services
                         //Gelecek dosya boyutu kadar alan tahsis ediliyor. Bu işlem zorunlu değildir lakin süreçte farklı bir program tarafından diskin doldurulup, işimize engel olmasının önüne geçiyoruz.
                         fileStream.SetLength(requestStream.Current.FileSize);
                     }
-
                     //Buffer, akışta gelen her bir parçanın ta kendisidir. Chunk olarak isimlendirilir.
                     var buffer = requestStream.Current.Buffer.ToByteArray();
 
@@ -61,9 +60,13 @@ namespace FileStreaming.Services
             {
                 //Client'ta stream 'CompleteAsync' edildiği vakit burada olası hata meydana gelebilmektedir. Dolayısıyla tüm bu süreci try catch ile kontrol ediyoruz.
             }
+            finally
+            {
+                fileStream.Close();
+                await fileStream.DisposeAsync();
 
-            await fileStream.DisposeAsync();
-            fileStream.Close();
+            }
+
             return new Empty();
         }
 
