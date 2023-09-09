@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33927.249
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStreaming", "FileStreaming.csproj", "{C8198569-0FEC-48F8-9A72-2DB0528F772E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileStreaming", "FileStreaming.csproj", "{C8198569-0FEC-48F8-9A72-2DB0528F772E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileStreamingClient", "..\FileStreamingClient\FileStreamingClient.csproj", "{9134E88D-5800-4B64-AD24-EBF4ECAF7593}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileStreamingClient", "..\FileStreamingClient\FileStreamingClient.csproj", "{9134E88D-5800-4B64-AD24-EBF4ECAF7593}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{AFBBE21C-FC44-469A-B85D-0E0F29C04574}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +26,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9134E88D-5800-4B64-AD24-EBF4ECAF7593} = {AFBBE21C-FC44-469A-B85D-0E0F29C04574}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {59FCB595-364D-43FF-A8A3-78BC164265DF}
